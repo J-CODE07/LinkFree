@@ -17,7 +17,7 @@ import CallToAction from "@components/CallToAction";
 import UserMini from "@components/user/UserMini";
 import ThemedImage from "@components/ThemedImage";
 import { serverEnv } from "@config/schemas/serverSchema";
-import { BASE_GITHUB_PROJECT_URL, PROJECT_NAME } from "@constants/index";
+import { PROJECT_NAME } from "@constants/index";
 import Button from "@components/Button";
 import { FaDollarSign, FaGithub, FaLock } from "react-icons/fa6";
 
@@ -221,7 +221,7 @@ export default function Home({
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-primary-medium dark:text-primary-low mb-4">
               Showcase the content you create and your projects in one place
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 justify-center items-center divide-x-0 sm:divide-x">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 justify-center items-center divide-x-0 sm:divide-x divide-dark-2 dark:divide-primary-low">
               <div className="flex items-center gap-x-2 px-4">
                 <FaGithub /> Open Source
               </div>
@@ -232,7 +232,7 @@ export default function Home({
                 <FaDollarSign /> Free Tier Forever
               </div>
             </div>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 mx-24">
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 sm:mx-24">
               <Button href="/docs" primary={true}>
                 Get started
               </Button>
@@ -245,6 +245,7 @@ export default function Home({
                 width="600"
                 height="600"
                 alt="BioDrop demo image"
+                priority={true}
               />
             </div>
           </div>
@@ -257,19 +258,16 @@ export default function Home({
             {
               name: "Active Users",
               current: total.active,
-              total: total.users,
               delta: today.users,
             },
             {
               name: "Profile Views",
               current: total.views,
-              total: total.views - today.views,
               delta: today.views,
             },
             {
               name: "Links Clicked",
               current: total.clicks,
-              total: total.clicks - today.clicks,
               delta: today.clicks,
             },
           ]}
@@ -295,7 +293,10 @@ export default function Home({
                 data-kt-value="oxibVr4Q0NlF"
                 data-kt-owner="nkmvj7Xr"
               ></div>
-              <Script src="https://app.kartra.com/video/oxibVr4Q0NlF"></Script>
+              <Script
+                src="https://app.kartra.com/video/oxibVr4Q0NlF"
+                strategy="lazyOnload"
+              />
             </div>
           </div>
         </div>
@@ -333,7 +334,7 @@ export default function Home({
                     featureIdx % 2 === 0
                       ? "lg:col-start-1"
                       : "lg:col-start-8 xl:col-start-9",
-                    "mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4"
+                    "mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4",
                   )}
                 >
                   <h3 className="text-lg sm:text-2xl font-bold text-primary-low">
@@ -353,7 +354,7 @@ export default function Home({
                     featureIdx % 2 === 0
                       ? "lg:col-start-6 xl:col-start-5"
                       : "lg:col-start-1",
-                    "flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8"
+                    "flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8",
                   )}
                 >
                   <div className="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-primary-low relative">
@@ -393,7 +394,7 @@ export default function Home({
       />
 
       <Link
-        href={BASE_GITHUB_PROJECT_URL + "/discussions"}
+        href="/docs/faqs"
         rel="noopener noreferrer"
         target="_blank"
         className="fixed bottom-5 right-5 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-medium"
